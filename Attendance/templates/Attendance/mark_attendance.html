@@ -1,0 +1,67 @@
+{% extends "Dashboard/dashboard_layout.html" %}
+{% load static %}
+{% block content %}
+<section>
+    <form method="POST">
+        {% csrf_token %}
+        <input required type="date" name="date" placeholder="Type here" class="input input-bordered w-full max-w-xs rounded-md" />
+        <select required name="course-id" class="select select-bordered w-full max-w-xs rounded-md">
+            <option disabled selected>----Select Course----</option>
+            {% for course in courses %}
+                <option value="{{ course.id }}">{{ course.course_name }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn bg-[#2D88D4] text-white rounded-md">Search</button>
+    </form>
+</section>
+<section data-theme="light" class="p-6 mt-10 rounded-md">
+    <h2 class="text-2xl font-medium">Mark Attendance for {{ course.course_name }} on {{ date }}</h2>
+    <div class="overflow-x-auto mt-14">
+        <form action="">
+            <table class="table table-zebra">
+                <!-- head -->
+                <thead>
+                  <tr>
+                    <th>
+                      ID
+                    </th>
+                    <th>Name</th>
+                    <th>Email Address</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for student in students %}
+                  <tr>
+                      <th>
+                        {{ student.id }}
+                      </th>
+                      <td>
+                        <div class="flex items-center gap-3">
+                          <div class="avatar">
+                            <div class="mask mask-squircle h-12 w-12">
+                              {% if student.photo %}
+                                  <img src="{{ student.photo.url }}" alt="{{ student.name }}" />
+                              {% else %}
+                                  <img src="{% static 'Students/images/avatar-of-a-student-character-free-vector.jpg' %}" alt="Default Avatar" />
+                              {% endif %}
+      
+                            </div>
+                          </div>
+                          <div>
+                            <div class="font-bold">{{ student.name }}</div>
+                            <div class="text-sm opacity-50">{{ student.address }}</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>{{ student.email_address }}</td>
+                      
+                    </tr>
+                  {% endfor %}
+             
+                </tbody>
+              </table>
+        </form>
+    </div>
+</section>
+{% endblock %}
