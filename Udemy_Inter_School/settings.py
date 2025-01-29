@@ -130,6 +130,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
+
+# The directory where static files will be collected
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
 # Media fiels
 
 MEDIA_URL = '/media/'
