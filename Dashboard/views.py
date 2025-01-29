@@ -3,13 +3,10 @@ from django.views import View
 from Teachers.models import Teacher
 from Students.models import Student
 from Courses.models import Course
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-
-def dashboard_view(request):
-    return render(request, 'Dashboard/dashboard_layout.html')
-
-class DashboardView(View):
+class DashboardView(LoginRequiredMixin, View):
     def get(self, request):
         stats = [
             {'label': 'Total Teachers', 'value': Teacher.objects.count(), 'icon':'fa-person-chalkboard', 'bg_color': 'bg-green-400'},

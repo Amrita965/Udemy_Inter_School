@@ -8,7 +8,7 @@
       </div>
       <ul>
         {% for link in sidebar_links %}
-          <li><a href="{{ link.url }}" class="text-white py-3 {% if request.path == link.url %}bg-[#2D88D4] hover:bg-[#2D88D4] rounded-md{% endif %}"><i class="fa-solid {{ link.icon }}"></i> {{ link.title }} {% if request.path == link.url %}<i class="fa-solid fa-angle-right"></i>{% endif %}</a></li>
+          <li><a href="{{ link.url }}" class="text-white py-3 {% if link.url in request.path %}bg-[#2D88D4] hover:bg-[#2D88D4] rounded-md{% endif %}"><i class="fa-solid {{ link.icon }}"></i> {{ link.title }} {% if link.url in request.path %}<i class="fa-solid fa-angle-right"></i>{% endif %}</a></li>
         {% endfor %}
       </ul>
     </div>
