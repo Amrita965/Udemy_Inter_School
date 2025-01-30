@@ -138,17 +138,6 @@ if not DEBUG:
     # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# The directory where static files will be collected
-
-
-# STATIC_FILES_DIRS = [
-#     BASE_DIR / 'Dashboard/static',
-#     BASE_DIR / 'Students/static',
-#     BASE_DIR / 'Teachers/static',
-#     BASE_DIR / 'AdminAuth/static',
-#     BASE_DIR / 'Courses/static',
-# ]
-
 # Media fiels
 
 MEDIA_URL = '/media/'
