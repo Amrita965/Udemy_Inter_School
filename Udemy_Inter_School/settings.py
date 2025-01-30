@@ -133,7 +133,11 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_FILES_DIRS = [
-    STATIC_ROOT / 'staticfiles'
+    BASE_DIR / 'Dashboard/static',
+    BASE_DIR / 'Students/static',
+    BASE_DIR / 'Teachers/static',
+    BASE_DIR / 'AdminAuth/static',
+    BASE_DIR / 'Courses/static',
 ]
 
 # Media fiels
