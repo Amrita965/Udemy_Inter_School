@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 crispy-tailwind = "*"
 gunicorn = "*"
+whitenoise = {extras = ["brotli"], version = "*"}
 
 [dev-packages]
 
