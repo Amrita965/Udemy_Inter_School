@@ -1,36 +1,26 @@
-Installation
+# School Management System
 
-Prerequisites
+A Django-based web application for managing students, teachers, courses, and related activities in a school environment. The system includes features like student and teacher management, attendance tracking, grade assignment, and reporting.
 
-Python (>=3.8 recommended)
+## Features
+- **Student Management**: Add, update, and manage student records.
+- **Teacher Management**: Add, update, and manage teacher records.
+- **Course Management**: Create and manage courses offered by the school.
+- **Attendance Tracking**: Mark and view attendance records for students.
+- **Grade Management**: Assign and view grades for students.
+- **Role-based Authentication**: Secure login for admins, teachers, and students.
+- **Reports**: Generate reports on attendance, grades, and fees.
 
-Pipenv (for managing virtual environments)
+## Prerequisites
 
-PostgreSQL/MySQL (optional, default is SQLite)
+- Python 3.x
+- Django 3.x or higher
+- pipenv (for virtual environment management)
 
-Setup
+## Installation
 
-Clone the repository:
+### 1. Clone the repository
 
-git clone https://github.com/yourusername/school-management.git
-cd school-management
-
-Create and activate a virtual environment using Pipenv:
-
-pipenv shell
-
-Install dependencies:
-
-pipenv install
-
-Configure the database in settings.py (default is SQLite, update if using PostgreSQL/MySQL).
-
-Run database migrations:
-
-python manage.py migrate
-
-Create a superuser:
-
-python manage.py createsuperuser
-
-Start the development server:
+```bash
+git clone https://github.com/your-username/school-management-system.git
+cd school-management-system
