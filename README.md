@@ -33,4 +33,3 @@ python manage.py runserver
 - You can log in using the following credentials (default for admin access):
   - **Username**: admin
   - **Password**: admin
-- Students and teachers can log in to their respective dashboards and access their data.
