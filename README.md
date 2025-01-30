@@ -1,6 +1,6 @@
 ## Installation
 
-# 1. Clone the repository and navigate to the project folder
+## 1. Clone the repository and navigate to the project folder
 
 ```bash
 git clone https://github.com/Amrita965/Udemy_Inter_School/
@@ -9,7 +9,7 @@ git clone https://github.com/Amrita965/Udemy_Inter_School/
 cd Udemy_Inter_School
 ```
 
-# 2. Install dependencies and set up the virtual environment
+## 2. Install dependencies and set up the virtual environment
 ```bash
 pip install pipenv
 ```
@@ -22,7 +22,7 @@ pipenv shell
 pipenv install --dev
 ```
 
-# 5. Run the development server
+## 5. Run the development server
 ```bash
 python manage.py runserver
 ```
