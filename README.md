@@ -1,72 +1,36 @@
-# Django School Management System
+Installation
 
-This is a **Django-based School Management System** designed to manage students, teachers, courses, and administration tasks efficiently.
+Prerequisites
 
-## Features
+Python (>=3.8 recommended)
 
-- **Student registration and management**
-- **Teacher management**
-- **Course and subject management**
-- **Attendance tracking**
-- **Grade and performance management**
-- **User authentication and authorization**
-- **Admin dashboard**
+Pipenv (for managing virtual environments)
 
-## Technologies Used
+PostgreSQL/MySQL (optional, default is SQLite)
 
-- **Backend:** Django (Python)
-- **Database:** PostgreSQL / SQLite (depending on configuration)
-- **Frontend:** HTML, CSS, JavaScript (optional)
-- **Authentication:** Django Authentication System
-- **Virtual Environment:** Pipenv
+Setup
 
-## **Configure environment variables**
+Clone the repository:
 
-1. **Create a `.env` file and set database configurations (if required)**
+git clone https://github.com/yourusername/school-management.git
+cd school-management
 
-2. **Apply database migrations**
+Create and activate a virtual environment using Pipenv:
 
-   ```sh
-   python manage.py migrate
-   ```
+pipenv shell
 
-3. **Create a superuser**
+Install dependencies:
 
-   ```sh
-   python manage.py createsuperuser
-   ```
+pipenv install
 
-4. **Run the development server**
+Configure the database in settings.py (default is SQLite, update if using PostgreSQL/MySQL).
 
-   ```sh
-   python manage.py runserver
-   ```
+Run database migrations:
 
-5. **Access the system**
+python manage.py migrate
 
-   - Open `http://127.0.0.1:8000/` in your browser
-   - Log in using the superuser credentials
+Create a superuser:
 
-## Usage
+python manage.py createsuperuser
 
-- **Admins** can manage students, teachers, and courses via the admin dashboard.
-- **Teachers** can track attendance and update student performance.
-- **Students** can view grades and course details.
-
-## Deployment
-
-To deploy the project, configure the settings for a production environment, such as setting up a PostgreSQL database, using `gunicorn` and `nginx`, and applying static files handling.
-
-## License
-
-This project is licensed under the **MIT License**.
-
-## Contributing
-
-Feel free to submit pull requests or open issues for improvements.
-
-## Contact
-
-For any inquiries, reach out at **`your-email@example.com`**.
-
-
+Start the development server:
