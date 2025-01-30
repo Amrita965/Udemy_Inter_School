@@ -141,13 +141,13 @@ if not DEBUG:
 # The directory where static files will be collected
 
 
-STATIC_FILES_DIRS = [
-    BASE_DIR / 'Dashboard/static',
-    BASE_DIR / 'Students/static',
-    BASE_DIR / 'Teachers/static',
-    BASE_DIR / 'AdminAuth/static',
-    BASE_DIR / 'Courses/static',
-]
+# STATIC_FILES_DIRS = [
+#     BASE_DIR / 'Dashboard/static',
+#     BASE_DIR / 'Students/static',
+#     BASE_DIR / 'Teachers/static',
+#     BASE_DIR / 'AdminAuth/static',
+#     BASE_DIR / 'Courses/static',
+# ]
 
 # Media fiels
 
