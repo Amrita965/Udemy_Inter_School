@@ -3,9 +3,9 @@
 {% load static %}
 
 {% block content %}
-<section class="p-6 rounded-md" data-theme="light">
+<section class="p-3 md:p-6 rounded-md" data-theme="light">
 
-  <div class="flex justify-between gap-2 mb-14">
+  <div class="flex flex-col md:flex-row justify-between gap-2 mb-14">
     <h2 class="text-2xl font-bold">Students</h2>
     <div class="flex items-center gap-2">
       <label class="input input-bordered flex items-center gap-2 rounded-md">
@@ -31,6 +31,7 @@
           <thead>
             <tr>
               <th>
+                ID
               </th>
               <th>Name</th>
               <th>Email Address</th>
@@ -45,9 +46,7 @@
             {% for student in students %}
             <tr>
                 <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
+                  {{ student.id }}
                 </th>
                 <td>
                   <div class="flex items-center gap-3">
@@ -77,10 +76,12 @@
                 <td>
                     {{ student.date_of_birth }}
                 </td>
-                <td class="flex gap-2">
-                  <a href="{% url "Students:edit_student" pk=student.id %}" class="btn btn-neutral rounded-md"><i class="fa-regular fa-pen-to-square"></i> Update</a>
-                  <a href="{% url "Students:delete_student" pk=student.id %}" class="btn btn-error text-white rounded-md"><i class="fa-solid fa-trash"></i> Delete</a>
-                  <button class="btn btn-active btn-link">Details</button>
+                <td>
+                  <div class="flex gap-2 items-center">
+                    <a href="{% url "Students:edit_student" pk=student.id %}" class="btn btn-neutral rounded-md"><i class="fa-regular fa-pen-to-square"></i> Update</a>
+                    <a href="{% url "Students:delete_student" pk=student.id %}" class="btn btn-error text-white rounded-md"><i class="fa-solid fa-trash"></i> Delete</a>
+                    <button class="btn btn-active btn-link">Details</button>
+                  </div>
                 </td>
               </tr>
             {% endfor %}

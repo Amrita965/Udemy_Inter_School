@@ -1,9 +1,9 @@
 {% extends "Dashboard/dashboard_layout.html" %}
 {% load static %}
 {% block content %}
-<section class="p-6 rounded-md" data-theme="light">
+<section class="p-3 md:p-6 rounded-md" data-theme="light">
 
-  <div class="flex justify-between gap-2 mb-14">
+  <div class="flex flex-col md:flex-row justify-between gap-2 mb-14">
     <h2 class="text-2xl font-bold">Teachers</h2>
     <div class="flex items-center gap-2">
       <label class="input input-bordered flex items-center gap-2 rounded-md">
@@ -29,9 +29,7 @@
       <thead>
         <tr>
           <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
+            ID
           </th>
           <th>Full Name</th>
           <th>Gender</th>
@@ -46,9 +44,7 @@
         {% for teacher in teachers %}
         <tr>
           <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
+            {{ teacher.id }}
           </th>
           <td>
             <div class="flex items-center gap-3">
@@ -72,7 +68,7 @@
           <td>{{ teacher.designation }}</td>
           <td>
             {% for course in teacher.courses.all %}
-              <p class="badge badge-outline block mb-2">{{ course.course_name }}</p>
+              <p class="badge badge-outline block mb-2 text-nowrap">{{ course.course_name }}</p>
             {% empty %}
               <span class="text-sm opacity-50">No courses assigned</span>
             {% endfor %}

@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <section>
-    <form method="POST">
+    <form class="flex gap-3 flex-col items-start md:flex-row" method="POST">
         {% csrf_token %}
         <input required type="date" name="date" placeholder="Type here" class="input input-bordered w-full max-w-xs rounded-md" />
         <select required name="course-id" class="select select-bordered w-full max-w-xs rounded-md">

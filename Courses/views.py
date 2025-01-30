@@ -3,10 +3,12 @@ from django.views.generic import CreateView, ListView, ListView, DeleteView, Upd
 from .forms import CourseForm
 from .models import Course
 from django.urls import reverse_lazy
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-class AddCourse(CreateView):
+class AddCourse(LoginRequiredMixin, CreateView):
     template_name = 'Courses/course_form.html'
     form_class = CourseForm
     success_url = reverse_lazy('Courses:all_courses')
@@ -15,20 +17,32 @@ class AddCourse(CreateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Add Course'
         return context
+    
+    def form_valid(self, form):
+        messages.success(self.request, 'Course added successfully.')
+        return super().form_valid(form)
 
-class AllCourses(ListView):
+class AllCourses(LoginRequiredMixin, ListView):
     model = Course
     template_name = 'Courses/all_courses.html'
     context_object_name = 'courses'
 
-class DeleteCourse(DeleteView):
+    def get_queryset(self):
+        return Course.objects.all().order_by('-id')
+
+class DeleteCourse(LoginRequiredMixin, DeleteView):
     model = Course
     template_name ='Courses/course_delete.html'
     success_url = reverse_lazy('Courses:all_courses')
     pk_url_kwarg="pk"
     context_object_name = 'course'
 
-class UpdateCourse(UpdateView):
+    def form_valid(self, form):
+        messages.success(self.request, 'Course deleted successfully.')
+        return super().form_valid(form)
+    
+
+class UpdateCourse(LoginRequiredMixin, UpdateView):
     model = Course
     form_class = CourseForm
     template_name ='Courses/course_form.html'
@@ -39,3 +53,7 @@ class UpdateCourse(UpdateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Update Course'
         return context
+    
+    def form_valid(self, form):
+        messages.success(self.request, 'Course updated successfully.')
+        return super().form_valid(form)
