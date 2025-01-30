@@ -18,7 +18,7 @@ class Teacher(models.Model):
     phone_number = models.CharField(max_length=15)
     designation = models.CharField(max_length=50)
     courses = models.ManyToManyField(Course, related_name="teachers", blank=True, null=True)
-    photo = models.ImageField(upload_to=teacher_directory_path, null=True, blank=True)
+    # photo = models.ImageField(upload_to=teacher_directory_path, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

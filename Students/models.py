@@ -16,7 +16,7 @@ class Student(models.Model):
     email_address = models.EmailField()
     phone_number = models.CharField(max_length=15)
     address = models.TextField()
-    photo = models.ImageField(upload_to=student_directory_path, null=True, blank=True)
+    # photo = models.ImageField(upload_to=student_directory_path, null=True, blank=True)
     courses = models.ManyToManyField(Course, related_name="students", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

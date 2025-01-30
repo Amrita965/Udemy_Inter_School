@@ -57,3 +57,5 @@ class UpdateCourse(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         messages.success(self.request, 'Course updated successfully.')
         return super().form_valid(form)
+    
+    

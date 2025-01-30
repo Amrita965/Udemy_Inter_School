@@ -6,8 +6,8 @@ def dashboard_links(request):
         {'title': 'Teachers', 'icon': 'fa-chalkboard-teacher', 'url': '/teachers/'},
         {'title': 'Courses', 'icon': 'fa-book', 'url': '/courses/'},
         # {'title': 'Attendance', 'icon': 'fa-calendar-days', 'url': '/attendance/'},
-        {'title': 'Grades', 'icon': 'fa-graduation-cap', 'url': '/grades/'},
-        {'title': 'Reports', 'icon': 'fa-chart-bar', 'url': '/reports/'},
+        # {'title': 'Grades', 'icon': 'fa-graduation-cap', 'url': '/grades/'},
+        # {'title': 'Reports', 'icon': 'fa-chart-bar', 'url': '/reports/'},
     ]
 
     return {

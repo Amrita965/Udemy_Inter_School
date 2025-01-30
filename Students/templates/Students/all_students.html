@@ -80,7 +80,7 @@
                   <div class="flex gap-2 items-center">
                     <a href="{% url "Students:edit_student" pk=student.id %}" class="btn btn-neutral rounded-md"><i class="fa-regular fa-pen-to-square"></i> Update</a>
                     <a href="{% url "Students:delete_student" pk=student.id %}" class="btn btn-error text-white rounded-md"><i class="fa-solid fa-trash"></i> Delete</a>
-                    <button class="btn btn-active btn-link">Details</button>
+                    <a href="{% url "Students:student_details" pk=student.id %}" class="btn btn-active btn-link">Details</a>
                   </div>
                 </td>
               </tr>

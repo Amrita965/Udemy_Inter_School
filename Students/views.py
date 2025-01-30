@@ -1,10 +1,11 @@
-from django.shortcuts import render
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.shortcuts import render, redirect
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView, View
 from .forms import StudentForm
 from .models import Student
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from Courses.models import Course
 
 # Create your views here.
 
@@ -61,5 +62,18 @@ class UpdateStudent(LoginRequiredMixin, UpdateView):
         messages.success(self.request, "Student has been updated successfully")
         return super().form_valid(form)
 
-    
 
+class StudentDetails(DetailView):
+    model = Student
+    template_name ='Students/student_details.html'
+    context_object_name ='student'
+    pk_url_kwarg = "pk"
+
+
+class RemoveStudentCourse(View):
+    def get(self, request, pk, cid):
+        student = Student.objects.get(pk=pk)
+        course = Course.objects.get(id=cid)
+        student.courses.remove(course)
+        messages.success(request, "Course has been removed from student successfully")
+        return redirect('Students:student_details', pk=pk)
